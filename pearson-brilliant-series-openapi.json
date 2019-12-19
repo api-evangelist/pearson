@@ -1,0 +1,16 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v1",
+        "title": "Pearson Brilliant Series",
+        "description": "Brilliant books, from Pearson, are outcome-focused and straight to the point. We have 38 titles covering many topics to give you the essential information you need - whether it's to develop your business and management skills, pursue the careers you love, or live the life you really want to live.",
+        "termsOfService": "http:\/\/developer.pearson.com\/terms-and-conditions"
+    },
+    "servers": [
+        "httpsapi.pearson.com\/pearson-education\/brilliant\/v1"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": []
+    }
+}
