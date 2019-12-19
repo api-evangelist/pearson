@@ -1,0 +1,206 @@
+{
+    "name": "Pearson",
+    "description": "Pearson plc is a British multinational publishing and education company headquartered in London.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/238-pearson-plc.jpg",
+    "tags": [
+        "api lifeycle",
+        "books",
+        "content",
+        "financial",
+        "financial news api",
+        "getting started example",
+        "have api",
+        "photos",
+        "publishing",
+        "recipes"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "FT Education API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/238-pearson-plc.jpg",
+            "humanURL": "http:\/\/pearson.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/ft-education-api-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/ft-education-api-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Pearson Kitchen Manager",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/238-pearson-plc.jpg",
+            "humanURL": "http:\/\/pearson.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-kitchen-manager-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-kitchen-manager-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Pearson Dictionaries",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/238-pearson-plc.jpg",
+            "humanURL": "http:\/\/pearson.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-dictionaries-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-dictionaries-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Pearson Peachpit Visual QuickStart Guides",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/238-pearson-plc.jpg",
+            "humanURL": "http:\/\/pearson.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-peachpit-visual-quickstart-guides-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-peachpit-visual-quickstart-guides-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Pearson Brilliant Series",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/238-pearson-plc.jpg",
+            "humanURL": "http:\/\/pearson.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-brilliant-series-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-brilliant-series-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Pearson plc",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/238-pearson-plc.jpg",
+            "humanURL": "http:\/\/pearson.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-plc-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-plc-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Application Gallery",
+            "url": "http:\/\/developer.pearson.com\/product-showcase"
+        },
+        {
+            "type": "Blog",
+            "url": "https:\/\/developer.pearson.com\/blog\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/developer.pearson.com\/feed\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/pearson"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/pearson"
+        },
+        {
+            "type": "Email",
+            "url": "scott.overland@pearson.com"
+        },
+        {
+            "type": "Email",
+            "url": "dmca.agent@pearsoned.com"
+        },
+        {
+            "type": "Email",
+            "url": "pdninfo@pearson.com"
+        },
+        {
+            "type": "Events",
+            "url": "http:\/\/developer.pearson.com\/events"
+        },
+        {
+            "type": "Getting Started",
+            "url": "http:\/\/developer.pearson.com\/content-apis\/get-started"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/pearsondevelopersnetwork"
+        },
+        {
+            "type": "Partners",
+            "url": "http:\/\/www.pearsonlearningsolutions.com\/pearson-learning-studio\/partner-with-us.php"
+        },
+        {
+            "type": "Terms of Service",
+            "url": "http:\/\/developer.pearson.com\/terms-and-conditions"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/pearson"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/pearsonplc"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/PearsonAPI"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/developer.pearson.com\/"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/pearson.com"
+        }
+    ]
+}
