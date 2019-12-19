@@ -1,0 +1,16 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Pearson Dictionaries",
+        "description": "The new Dictionaries API, which has now come out of beta, has been introduced to provide a simplified and consistent API to access content from multiple different dictionaries, while enhancing the ability to find and use data from within the dictionaries.",
+        "termsOfService": "http:\/\/developer.pearson.com\/terms-and-conditions"
+    },
+    "servers": [
+        "httpsapi.pearson.com\/v2\/dictionaries"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": []
+    }
+}
