@@ -14,8 +14,8 @@
         "publishing",
         "recipes"
     ],
-    "created": "2019-12-19",
-    "modified": "2019-12-19",
+    "created": "2019-12-21",
+    "modified": "2019-12-21",
     "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/apis.json",
     "specificationVersion": "0.14",
     "apis": [
@@ -29,11 +29,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/ft-education-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/ft-education-api-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/ft-education-api-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/ft-education-api-postman-collection.json"
                 }
             ]
         },
@@ -47,11 +47,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-kitchen-manager-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-kitchen-manager-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-kitchen-manager-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-kitchen-manager-postman-collection.json"
                 }
             ]
         },
@@ -65,11 +65,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-dictionaries-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-dictionaries-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-dictionaries-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-dictionaries-postman-collection.json"
                 }
             ]
         },
@@ -83,11 +83,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-peachpit-visual-quickstart-guides-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-peachpit-visual-quickstart-guides-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-peachpit-visual-quickstart-guides-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-peachpit-visual-quickstart-guides-postman-collection.json"
                 }
             ]
         },
@@ -101,11 +101,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-brilliant-series-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-brilliant-series-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-brilliant-series-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-brilliant-series-postman-collection.json"
                 }
             ]
         },
@@ -119,17 +119,21 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-plc-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-plc-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/pearson-plc-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/pearson\/master\/pearson-plc-postman-collection.json"
                 }
             ]
         }
     ],
     "include": [],
     "x-common": [
+        {
+            "type": "APIs.json",
+            "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apis.json"
+        },
         {
             "type": "Application Gallery",
             "url": "http:\/\/developer.pearson.com\/product-showcase"
