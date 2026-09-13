@@ -1,0 +1,131 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  Live probes of api.pearson.com, developer.pearson.com and status.pearson.com, the
+  PearsonDevelopersNetwork GitHub organization, and Pearson's published LearningStudio
+  retirement guidance.
+note: >-
+  Pearson once ran a substantial public API program — the Pearson Developers Network,
+  with REST Course APIs, SOAP SIS APIs, an eventing surface, five first-party client
+  libraries and a public blog. That program is gone. What survives is a login wall, a
+  retired gateway, and an abandoned GitHub organization. This artifact records the
+  retirement because it is the single most load-bearing fact about Pearson's API
+  surface in 2026.
+
+status_page:
+  url: https://status.pearson.com/
+  probed_status: 200
+  verified: true
+  provider: Atlassian Statuspage
+  detail: >-
+    A live, comprehensive, per-product status page. Sections cover Higher Education
+    Courseware (Learning Catalytics, Mastering, MathXL for School, MyLab, Pearson+,
+    Pearson Interactive Labs, Revel, StatCrunch, third-party LMS integrations), English
+    Language Learning (English Benchmark Young Learners, MyEnglishLab, Pearson English
+    Connect, Pearson English Portal), Clinical Assessments, School Assessments, Pearson
+    Virtual Schools, and UK Teaching and Awarding. A seven-day incident history grid is
+    rendered per section. This is Pearson's strongest operational-transparency artifact.
+  covers_apis: false
+  covers_apis_note: >-
+    Every component is an end-user product. No API, gateway or developer-platform
+    component is listed, so an integrator cannot use this page to tell whether an API
+    they depend on is up.
+
+versioning:
+  policy_published: false
+  detail: >-
+    No public versioning policy. The retired LearningStudio SOAP contracts carried
+    version in the path (UserManagement/v1_6, coursecopy v2.2), but no current
+    Pearson-published API states a versioning scheme anonymously.
+
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  detail: >-
+    Pearson has performed real, dated API retirements (below) but does not publish a
+    standing deprecation policy, a Sunset/Deprecation header commitment (RFC 8594), or a
+    deprecation notice page at any anonymously reachable URL. Retirement guidance was
+    communicated to contracted institutions and survives mainly on customer sites, not
+    on a Pearson page. No `Deprecation` pointer is wired in apis.yml for this reason —
+    the retirements are real, the policy is not published.
+
+sla:
+  published: false
+  detail: No public SLA or uptime commitment for any Pearson API.
+
+retirements:
+  - product: Pearson LearningStudio (eCollege) LMS
+    event: platform retired
+    date: '2018-01-01'
+    detail: >-
+      The LearningStudio LMS was retired on 1 January 2018. The LearningStudio REST and
+      SOAP APIs remained available afterwards so existing institutions could extract
+      their data, and were deprecated with no new development expected.
+    evidence: https://developer.pearson.com/products/learningstudio
+    evidence_status: 401
+
+  - product: eCollege platform
+    event: full shutdown
+    date: '2023-10'
+    detail: Pearson completed shutdown of the eCollege platform in October 2023.
+
+  - product: api.pearson.com (LearningStudio API gateway)
+    event: decommissioned
+    date: observed 2026-09-13
+    detail: >-
+      Every path on api.pearson.com now returns HTTP 403 with the body
+      "We apologize, you have reached a service that has been moved. If you need further
+      assistance please contact ptxcsoaops@pearson.com."
+    evidence: https://api.pearson.com/openapi.json
+    evidence_status: 403
+
+  - product: campusapi.ecollege.com (LearningStudio SIS SOAP endpoint)
+    event: DNS removed
+    date: observed 2026-09-13
+    detail: >-
+      The soap:address location named in every LearningStudio SIS WSDL,
+      https://campusapi.ecollege.com/UserManagement/v1_6/UserManagementServices.asmx,
+      no longer resolves (NXDOMAIN). The contracts survive in Pearson's GitHub
+      organization and are archived at wsdl/ in this repo; the endpoint does not.
+
+  - product: Pearson Developers Network public documentation
+    event: moved behind authentication
+    date: observed 2026-09-13
+    detail: >-
+      developer.pearson.com now SAML-redirects to Pearson's corporate Entra ID tenant and
+      into a Salesforce Experience Cloud community. Every documentation path probed —
+      /learningstudio/available-apis, /apis/exams, /products/learningstudio,
+      /learningstudio/authentication — returns HTTP 401.
+    evidence: https://developer.pearson.com/learningstudio/available-apis
+    evidence_status: 401
+
+  - product: PearsonDevelopersNetwork GitHub organization
+    event: abandoned
+    date: '2016-09-23'
+    detail: >-
+      20 public repositories of first-party client libraries and samples. The most recent
+      commit to any of them is 2016-09-23; 17 of 20 were last pushed in 2014 or 2015.
+    evidence: https://github.com/PearsonDevelopersNetwork
+    evidence_status: 200
+
+current_surfaces:
+  - name: Pearson VUE Web Services
+    host: ws.pearsonvue.com
+    state: live-but-closed
+    detail: >-
+      An Azure API Management gateway that resolves and answers, but publishes no
+      contract, no discovery document and no anonymous documentation. Pearson VUE markets
+      API integration for candidate registration and results delivery to test owners;
+      the technical surface is reachable only through a customer or partner engagement.
+    evidence: https://ws.pearsonvue.com/
+    evidence_status: 500
+
+  - name: Credly by Pearson
+    state: live-and-documented
+    detail: >-
+      The one Pearson-owned API with a public, machine-readable contract is Credly's,
+      acquired by Pearson in 2022 and documented at docs.credly.com. It is profiled
+      separately in the API Evangelist network as all/credly/ and is deliberately not
+      duplicated here.
+    evidence: https://docs.credly.com/browse/docs/getting-started
+    evidence_status: 200

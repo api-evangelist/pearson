@@ -1,0 +1,76 @@
+generated: '2026-09-13'
+method: probed
+source: https://developer.pearson.com/.well-known/openid-configuration
+note: >-
+  Derived from the live OpenID Connect discovery document Pearson serves at
+  developer.pearson.com, captured verbatim at
+  well-known/pearson-openid-configuration.json. This describes the identity provider
+  that gates the Pearson Developers Network portal — it is the login in front of the
+  documentation, not an authorization surface for a customer-callable Pearson API.
+  Pearson publishes no anonymous authentication reference for any API product: every
+  page under developer.pearson.com answers 401 and SAML-redirects to Pearson's
+  corporate Entra ID tenant, federated into a Salesforce Experience Cloud community.
+
+schemes:
+  - id: pearson_developer_portal_oidc
+    type: openIdConnect
+    protocol: OpenID Connect 1.0
+    issuer: https://developer.pearson.com
+    discovery_url: https://developer.pearson.com/.well-known/openid-configuration
+    endpoints:
+      authorization: https://developer.pearson.com/services/oauth2/authorize
+      token: https://developer.pearson.com/services/oauth2/token
+      userinfo: https://developer.pearson.com/services/oauth2/userinfo
+      revocation: https://developer.pearson.com/services/oauth2/revoke
+      introspection: https://developer.pearson.com/services/oauth2/introspect
+      registration: https://developer.pearson.com/services/oauth2/register
+      end_session: https://developer.pearson.com/services/auth/idp/oidc/logout
+      jwks_uri: https://developer.pearson.com/id/keys
+    jwks_status: 200
+    grant_types:
+      - authorization_code
+      - refresh_token
+    response_types:
+      - code
+      - token
+      - token id_token
+    token_endpoint_auth_methods:
+      - client_secret_post
+      - client_secret_basic
+      - private_key_jwt
+    pkce:
+      supported: true
+      code_challenge_methods:
+        - S256
+    dpop:
+      supported: true
+      algs: [RS256, RS384, RS512, ES256, ES384, ES512, EdDSA]
+    id_token_signing_algs:
+      - RS256
+    dynamic_client_registration: true
+    subject_types: [public]
+    platform: >-
+      Salesforce Experience Cloud identity provider running on Pearson's own host. The
+      scopes_supported list is the stock Salesforce platform scope set (see
+      scopes/pearson-scopes.yml) rather than a Pearson-authored API scope vocabulary.
+
+historical:
+  - id: learningstudio_oauth
+    status: retired
+    note: >-
+      The retired Pearson LearningStudio APIs documented OAuth 1.0a (signed with an
+      Application ID, Token Key Moniker and Secret) and OAuth 2. That documentation now
+      sits behind the portal login; the platform itself was retired (see
+      lifecycle/pearson-lifecycle.yml) and api.pearson.com answers
+      "service that has been moved".
+    source: https://developer.pearson.com/learningstudio/authentication
+    probed_status: 401
+
+gaps:
+  - No anonymous, machine-readable authentication reference for any live Pearson API.
+  - >-
+    No /.well-known/oauth-authorization-server or /.well-known/oauth-protected-resource
+    document on any Pearson host (all 401/404 — see well-known/pearson-well-known.yml).
+  - >-
+    The Pearson VUE gateway at ws.pearsonvue.com publishes no discovery document and no
+    anonymous auth description.

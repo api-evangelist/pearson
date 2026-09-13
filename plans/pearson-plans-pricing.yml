@@ -1,0 +1,24 @@
+generated: '2026-09-13'
+method: searched
+source: https://www.pearson.com/en-us
+note: >-
+  Pearson publishes no API pricing of any kind. There is no developer plan page, no tier
+  table, no free tier and no metered rate card for any Pearson API. Access to the Pearson
+  Developers Network portal and to Pearson VUE Web Services is established through a
+  contracted institutional or test-owner relationship, not a self-serve signup with a
+  published price. Pearson does publish consumer pricing for learning products
+  (Pearson+ subscriptions, eTextbooks, course materials) — that is retail product pricing
+  and is deliberately NOT recorded here as an API plan, because doing so would credit a
+  pricing surface for an API that has none.
+plan_count: 0
+model: contracted / contact-sales
+self_serve: false
+free_tier: false
+evidence:
+  - url: https://developer.pearson.com/
+    status: 401
+    note: Portal root SAML-redirects to login; no anonymous plans page exists.
+  - url: https://www.pearson.com/en-us
+    status: 200
+    note: No developer or API pricing entry point anywhere in the site navigation or sitemap.
+plans: []

@@ -1,0 +1,177 @@
+generated: '2026-09-13'
+method: probed
+source: >-
+  Direct anonymous HTTP probes of the named /.well-known/ path list against every
+  Pearson host this record knows, 2026-09-13.
+note: >-
+  One document was served: developer.pearson.com/.well-known/openid-configuration, a
+  real OpenID Connect discovery document (issuer https://developer.pearson.com) for the
+  identity provider that fronts the Pearson Developers Network portal. Every other path
+  on every other host either 404s, or 401s behind the portal's SAML login. No
+  security.txt is served anywhere — which is notable, because Pearson's own Responsible
+  Security Disclosure Policy scopes itself to "Pearson products with a security.txt file
+  in their root directory". status.pearson.com/security.txt answers 200 but the body is
+  the Status Page SPA shell, not an RFC 9116 document, so it is recorded as a miss.
+  ws.pearsonvue.com is an Azure API Management gateway that answers every unknown path
+  with a JSON {"statusCode":404,"message":"Resource not found"} envelope.
+
+hosts:
+  - host: pearson.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /security.txt
+        status: 404
+
+  - host: www.pearson.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /security.txt
+        status: 404
+
+  - host: plc.pearson.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /security.txt
+        status: 404
+
+  - host: developer.pearson.com
+    note: >-
+      Everything but the OIDC discovery document is behind the portal's SAML gate and
+      answers 401 with a Salesforce Experience Cloud login redirect page.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: pearson-openid-configuration.json
+        content_type: application/json;charset=UTF-8
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/oauth-protected-resource
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/ai-plugin.json
+        status: 401
+      - path: /security.txt
+        status: 401
+
+  - host: api.pearson.com
+    note: >-
+      The retired LearningStudio API gateway. Every path returns 403 with the body
+      "We apologize, you have reached a service that has been moved."
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+
+  - host: www.pearsonvue.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /security.txt
+        status: 404
+
+  - host: ws.pearsonvue.com
+    note: >-
+      Azure API Management gateway. Answers 400 at the HTTP layer with a JSON body of
+      {"statusCode": 404, "message": "Resource not found"} for every unknown path.
+    documents:
+      - path: /.well-known/security.txt
+        status: 400
+      - path: /.well-known/openid-configuration
+        status: 400
+      - path: /.well-known/oauth-authorization-server
+        status: 400
+      - path: /.well-known/oauth-protected-resource
+        status: 400
+      - path: /.well-known/api-catalog
+        status: 400
+      - path: /.well-known/ai-plugin.json
+        status: 400
+
+  - host: home.pearsonvue.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+
+  - host: status.pearson.com
+    documents:
+      - path: /security.txt
+        status: 200
+        served_document: false
+        note: >-
+          200 but the body is the Status Page single-page-app HTML shell, not an RFC 9116
+          security.txt. Recorded as a miss, not a hit.
+
+agent_card_probe:
+  method: probed
+  result: none
+  note: >-
+    /.well-known/agent-card.json and /.well-known/agent.json were probed on
+    pearson.com, www.pearson.com, plc.pearson.com, developer.pearson.com,
+    api.pearson.com, www.pearsonvue.com, ws.pearsonvue.com and home.pearsonvue.com.
+    No host returned a JSON AgentCard. Nothing was written to a2a/ — an agent card is
+    search-only and is never authored on a provider's behalf.

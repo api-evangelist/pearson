@@ -1,0 +1,72 @@
+generated: '2026-09-13'
+method: searched
+source: https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-SIS-CSharp
+note: >-
+  Three SOAP contracts, saved VERBATIM, harvested from Pearson's own GitHub organization.
+  They are the only machine-readable API contracts Pearson still publishes anywhere a
+  member of the public can reach without credentials.
+
+ownership:
+  verdict: pearson-owned, different legacy domain — justified
+  statement: >-
+    The contracts carry eCollege namespaces (urn:eclg:*, http://CampusApi.eCollege.com/*)
+    rather than a pearson.com one. eCollege was acquired by Pearson in 2007 and rebranded
+    as Pearson LearningStudio; these files are published in Pearson's own
+    PearsonDevelopersNetwork organization (whose GitHub profile URL is
+    developer.pearson.com) as the official "LearningStudio SIS API Libraries", and Pearson
+    completed the eCollege platform shutdown in October 2023. The legacy namespace is the
+    acquired platform's, and the publisher is Pearson.
+
+status: retired
+status_detail: >-
+  The soap:address these contracts bind to,
+  https://campusapi.ecollege.com/UserManagement/v1_6/UserManagementServices.asmx, does not
+  resolve — campusapi.ecollege.com is NXDOMAIN as of 2026-09-13. The contracts are real and
+  first-party; the service behind them is gone.
+pointer_policy: >-
+  NO `WSDL` contract pointer is wired into apis.yml. WSDL counts as a contract for
+  contract_present, and wiring one here would credit Pearson with a callable SOAP surface
+  that was decommissioned. These files are archived as historical evidence and referenced
+  from lifecycle/pearson-lifecycle.yml instead.
+
+contracts:
+  - file: pearson-learningstudio-sis-usermanagement.wsdl
+    service: UserManagement
+    port_type: UserManagementSoap
+    target_namespace: http://CampusApi.eCollege.com/UserManagement/V1_6
+    soap_address: https://campusapi.ecollege.com/UserManagement/v1_6/UserManagementServices.asmx
+    soap_address_dns: NXDOMAIN
+    operations:
+      - ProcessRequest
+      - ProcessSingleRequest
+    source_path: Library/SIS.Users/Service References/API/UserManagementServices.wsdl
+    bytes: 23162
+
+  - file: pearson-learningstudio-sis-enterprisecourse.wsdl
+    port_type: EnterpriseCourseService
+    target_namespace: urn:eclg:coursecopy:enterprisecourse
+    operations:
+      - CopyCourseContent
+      - CopyCourseSection
+      - CopyCourseSectionAndContent
+      - CreateCourseSection
+      - RemoveCourseCallNumbers
+      - UpdateCourseSection
+    source_path: Library/SIS.Courses/Service References/API/enterprisecourse.wsdl
+    bytes: 15020
+
+  - file: pearson-learningstudio-sis-enterpriseterm.wsdl
+    port_type: EnterpriseTermService
+    target_namespace: urn:eclg:coursecopy:enterpriseterm
+    operations:
+      - CreateStandardTerm
+      - UpdateStandardTerm
+    source_path: Library/SIS.Terms/Service References/API/enterpriseterm.wsdl
+    bytes: 7083
+
+operation_count: 10
+not_archived:
+  - path: Library/SIS.Courses/Service References/API/v2.2.wsdl
+    reason: generated service-reference stub alongside enterprisecourse.wsdl
+  - path: Library/SIS.Terms/Service References/API/v2.2.wsdl
+    reason: generated service-reference stub alongside enterpriseterm.wsdl

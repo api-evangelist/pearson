@@ -1,0 +1,23 @@
+generated: '2026-09-13'
+method: searched
+source: https://developer.pearson.com/
+note: >-
+  No Pearson API rate limits are documented at any anonymously reachable URL. The
+  documentation that would carry them sits behind the Pearson Developers Network login
+  (HTTP 401 on every path), and no live Pearson endpoint could be exercised anonymously
+  to observe rate-limit response headers: api.pearson.com answers 403 "service that has
+  been moved", and ws.pearsonvue.com rejects unauthenticated calls at the Azure API
+  Management gateway. An honest zero, not an omission.
+limit_count: 0
+headers_documented: false
+headers_observed: false
+status_on_exhaustion: unknown
+retry_after: unknown
+evidence:
+  - url: https://developer.pearson.com/learningstudio/available-apis
+    status: 401
+  - url: https://api.pearson.com/openapi.json
+    status: 403
+  - url: https://ws.pearsonvue.com/
+    status: 500
+rate_limits: []

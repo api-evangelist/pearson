@@ -1,20 +1,160 @@
 aid: pearson
 name: Pearson
-description: 'Pearson is a company surfaced via the API Evangelist harvest backlog (source: absent-parent)
-  and added to the network as a stub for full-pipeline profiling.'
 url: https://raw.githubusercontent.com/api-evangelist/pearson/refs/heads/main/apis.yml
-x-type: company
-x-source: harvest:absent-parent
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+kind: company
+position: Producing
+description: >-
+  Pearson plc is the world's largest learning company, operating courseware and
+  assessment platforms (MyLab, Mastering, Revel, Pearson+, Learning Catalytics), UK and
+  international qualifications (Edexcel, BTEC), clinical and school assessment
+  businesses, Pearson Virtual Schools, English language learning, and Pearson VUE, the
+  computer-based certification and licensure testing network. Pearson once ran a
+  substantial public API program — the Pearson Developers Network, with RESTful
+  LearningStudio Course APIs, SOAP SIS APIs, an eventing surface and first-party client
+  libraries in five languages. That program is retired and closed: LearningStudio ended
+  in 2018, eCollege shut down in 2023, api.pearson.com answers "service that has been
+  moved", and developer.pearson.com returns 401 behind a Salesforce community. What
+  remains public is an OIDC discovery document, a live status page, a security
+  disclosure policy, LTI 1.3 guidance, and three retired SIS WSDLs.
+image: https://www.pearson.com/media_11f626a45563a855db4c129c4851356069ff52ec8.png?width=1200&format=pjpg&optimize=medium
+tags:
+- Education
+- Learning
+- Assessment
+- Certification
+- Publishing
+- EdTech
+- Qualifications
+- Testing
+- Learning Management
+- Workforce Skills
 created: '2026-09-13'
 modified: '2026-09-13'
-tags:
-- Company
-apis: []
+specificationVersion: '0.20'
+apis:
+- aid: pearson:pearson-developers-network
+  name: Pearson Developers Network
+  description: >-
+    Pearson's named API program. Historically served the LearningStudio RESTful Course
+    APIs, the SOAP SIS APIs, an eventing surface and a Financial Times Education API via
+    api.pearson.com. The platform was retired and the portal is now gated: every
+    documentation path returns HTTP 401 and SAML-redirects to a Salesforce Experience
+    Cloud community. The gateway host api.pearson.com resolves but answers 403 on every
+    path with "We apologize, you have reached a service that has been moved."
+  humanURL: https://developer.pearson.com/
+  image: https://www.pearson.com/media_11f626a45563a855db4c129c4851356069ff52ec8.png?width=1200&format=pjpg&optimize=medium
+  baseURL: https://api.pearson.com
+  x-status: retired
+  x-base-url-note: >-
+    api.pearson.com is the documented historical gateway host for this program. It
+    resolves and responds, but returns 403 "service that has been moved" on every path.
+    Recorded as-is rather than replaced with a guess; see lifecycle/pearson-lifecycle.yml.
+  tags:
+  - Learning Management
+  - Education
+  properties:
+  - type: DeveloperPortal
+    url: https://developer.pearson.com/
+  - type: OpenIDConnect
+    url: well-known/pearson-openid-configuration.json
+  - type: Authentication
+    url: authentication/pearson-authentication.yml
+  - type: OAuthScopes
+    url: scopes/pearson-scopes.yml
+  - type: GitHubOrganization
+    url: https://github.com/PearsonDevelopersNetwork
+- aid: pearson:pearson-vue-web-services
+  name: Pearson VUE Web Services
+  description: >-
+    The integration surface Pearson VUE offers test owners for candidate registration,
+    scheduling and results delivery. ws.pearsonvue.com resolves and is a live Azure API
+    Management gateway, answering unknown paths with a JSON
+    {"statusCode": 404, "message": "Resource not found"} envelope. Pearson VUE publishes
+    no contract, no discovery document and no anonymous technical documentation for it —
+    access runs through a contracted test-owner engagement.
+  humanURL: https://www.pearsonvue.com/us/en/test-owners.html
+  image: https://www.pearson.com/media_11f626a45563a855db4c129c4851356069ff52ec8.png?width=1200&format=pjpg&optimize=medium
+  baseURL: https://ws.pearsonvue.com
+  x-status: gated
+  tags:
+  - Certification
+  - Testing
+  properties:
+  - type: Documentation
+    url: https://www.pearsonvue.com/us/en/test-owners.html
+common:
+- type: DomainSecurity
+  url: security/pearson-domain-security.yml
+- type: WellKnown
+  url: well-known/pearson-well-known.yml
+- type: Authentication
+  url: authentication/pearson-authentication.yml
+- type: OAuthScopes
+  url: scopes/pearson-scopes.yml
+- type: Conformance
+  url: conformance/pearson-conformance.yml
+- type: Lifecycle
+  url: lifecycle/pearson-lifecycle.yml
+- type: StatusPage
+  url: https://status.pearson.com/
+- type: VulnerabilityDisclosure
+  url: security/pearson-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.pearson.com/en-us/legal-information/our-policies/responsible-security-disclosure-policy.html
+- type: Packages
+  url: packages/pearson-packages.yml
+- type: LLMsTxt
+  url: llms/pearson-llms.txt
+- type: Plans
+  url: plans/pearson-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/pearson-rate-limits.yml
+- type: DeveloperPortal
+  url: https://developer.pearson.com/
+- type: Documentation
+  url: https://www.pearson.com/en-us/higher-education/educators/digital-learning-platforms/lms-integration-services.html
+- type: GitHubOrganization
+  url: https://github.com/PearsonDevelopersNetwork
+- type: Support
+  url: https://support.pearson.com/
+- type: Blog
+  url: https://www.pearson.com/en-us/higher-education/insights-and-events/teaching-and-learning-blog.html
+- type: TermsOfService
+  url: https://www.pearson.com/en-us/legal-information/terms-of-use.html
+- type: PrivacyPolicy
+  url: https://www.pearson.com/en-us/legal-information/privacy-policy.html
+- type: Login
+  url: https://developer.pearson.com/login
+- type: Website
+  url: https://www.pearson.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-09-13'
+  status: minimal
+  artifacts_added: 17
+  pass: local-v3
+x-coverage:
+  state: gated
+  reason: partner-login
+  detail: >-
+    Every path on developer.pearson.com — the Pearson Developers Network, including the
+    LearningStudio API reference, the available-APIs index and the authentication guide —
+    answers HTTP 401 and SAML-redirects into Pearson's corporate Entra ID tenant and a
+    Salesforce Experience Cloud community, while the program's gateway api.pearson.com
+    returns 403 "We apologize, you have reached a service that has been moved."
+  evidence:
+    - url: https://developer.pearson.com/learningstudio/available-apis
+      status: 401
+    - url: https://developer.pearson.com/openapi.json
+      status: 401
+    - url: https://api.pearson.com/openapi.json
+      status: 403
+    - url: https://ws.pearsonvue.com/
+      status: 500
+    - url: https://developer.pearson.com/.well-known/openid-configuration
+      status: 200
+  checked: '2026-09-13'

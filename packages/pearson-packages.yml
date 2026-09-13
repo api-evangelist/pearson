@@ -1,0 +1,171 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  npm registry search, PyPI, RubyGems and Packagist metadata endpoints, plus the
+  PearsonDevelopersNetwork GitHub organization listing.
+note: >-
+  Pearson published five first-party client-library families for the LearningStudio APIs
+  — PHP, Java, C#, Ruby and Python — plus HelloWorld starters in the same five languages.
+  NONE of them was ever pushed to a language package registry: every one is distributed
+  only as a GitHub repository, so there is no registry metadata endpoint to read a
+  version from. They are recorded with `version: null` and a note, per the pipeline's
+  "checked, nothing to record" rule.
+  THE CURRENCY FINDING: the newest commit across the entire organization is 2016-09-23,
+  and the API these libraries wrap was retired in 2018 and its gateway decommissioned
+  (see lifecycle/pearson-lifecycle.yml). This is the strongest possible abandonment
+  signal — a first-party SDK set that outlived the API it wraps by a decade without a
+  single release.
+  NO `SDKs` POINTER IS WIRED IN apis.yml. These are genuinely official Pearson client
+  libraries, but they target a decommissioned endpoint (campusapi.ecollege.com is
+  NXDOMAIN) and cannot be installed from any registry. Advertising them as a live SDK
+  surface would be a false claim on Pearson's behalf. Only `type: Packages` is wired.
+
+registries_searched:
+  - registry: npm
+    result: no first-party Pearson API SDK
+    detail: >-
+      A full-text search returns only statistics packages (Pearson correlation) and
+      unrelated community work. The only genuinely Pearson-affiliated scope is
+      @pearsonedunext (publisher edunextpearson, repos under github.com/Pearson-Advance):
+      three Open edX React UI components — frontend-component-footer 13.1.0-post
+      (2026-03-03), frontend-component-header 5.0.0-post.3 (2026-04-07),
+      frontend-component-cookie-policy-banner 6.1.0 (2026-09-08). These are front-end
+      components for a hosted Open edX distribution, not clients for a Pearson API, so
+      they are not listed as SDKs below.
+  - registry: pypi
+    result: no first-party Pearson API SDK
+    detail: The name `pearson` on PyPI is unrelated third-party work; `learningstudio` and `pearson-sdk` are 404.
+  - registry: rubygems
+    result: no first-party Pearson API SDK
+    detail: '`learningstudio` is 404; `pearson` is unrelated third-party work.'
+  - registry: packagist
+    result: no first-party Pearson API SDK
+  - registry: maven-central
+    result: not published
+    detail: The Java libraries ship as a GitHub repository with no Maven coordinates.
+  - registry: nuget
+    result: not published
+    detail: The C# libraries ship as a GitHub repository with no NuGet package id.
+
+packages:
+  - language: php
+    registry: github
+    name: LearningStudio-Libraries-PHP
+    url: https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-PHP
+    install: git clone https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-PHP
+    official: true
+    version: null
+    published: null
+    version_note: >-
+      Never published to Packagist or any registry — no metadata endpoint exists to read
+      a version from. Last repository push 2014-08-20.
+    last_push: '2014-08-20'
+    status: abandoned
+    targets: Pearson LearningStudio RESTful Course APIs (retired)
+
+  - language: java
+    registry: github
+    name: LearningStudio-Libraries-Java
+    url: https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-Java
+    install: git clone https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-Java
+    official: true
+    version: null
+    published: null
+    version_note: Never published to Maven Central. Last repository push 2015-08-11.
+    last_push: '2015-08-11'
+    status: abandoned
+    targets: Pearson LearningStudio RESTful Course APIs (retired)
+
+  - language: csharp
+    registry: github
+    name: LearningStudio-Libraries-CSharp
+    url: https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-CSharp
+    install: git clone https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-CSharp
+    official: true
+    version: null
+    published: null
+    version_note: Never published to NuGet. Last repository push 2014-08-20.
+    last_push: '2014-08-20'
+    status: abandoned
+    targets: Pearson LearningStudio RESTful Course APIs (retired)
+
+  - language: ruby
+    registry: github
+    name: LearningStudio-Libraries-Ruby
+    url: https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-Ruby
+    install: git clone https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-Ruby
+    official: true
+    version: null
+    published: null
+    version_note: Never published to RubyGems (`learningstudio` returns 404). Last repository push 2014-08-25.
+    last_push: '2014-08-25'
+    status: abandoned
+    targets: Pearson LearningStudio RESTful Course APIs (retired)
+
+  - language: python
+    registry: github
+    name: LearningStudio-Libraries-Python
+    url: https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-Python
+    install: git clone https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-Python
+    official: true
+    version: null
+    published: null
+    version_note: Never published to PyPI (`learningstudio` returns 404). Last repository push 2016-09-23.
+    last_push: '2016-09-23'
+    status: abandoned
+    targets: Pearson LearningStudio RESTful Course APIs (retired)
+
+  - language: csharp
+    registry: github
+    name: LearningStudio-Libraries-SIS-CSharp
+    url: https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-SIS-CSharp
+    install: git clone https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-SIS-CSharp
+    official: true
+    version: null
+    published: null
+    version_note: Never published to NuGet. Last repository push 2015-06-30.
+    last_push: '2015-06-30'
+    status: abandoned
+    targets: Pearson LearningStudio SOAP SIS APIs (retired)
+    contains_contracts: >-
+      This repository is the only place Pearson still publishes a machine-readable API
+      contract of any kind — five WSDL documents under Library/*/Service References/API/.
+      Three are archived verbatim in wsdl/ in this repo.
+
+  - language: java
+    registry: github
+    name: LearningStudio-Libraries-Eventing-Java
+    url: https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-Eventing-Java
+    install: git clone https://github.com/PearsonDevelopersNetwork/LearningStudio-Libraries-Eventing-Java
+    official: true
+    version: null
+    published: null
+    version_note: Never published to Maven Central. Last repository push 2015-08-11.
+    last_push: '2015-08-11'
+    status: abandoned
+    targets: >-
+      LearningStudio Eventing — a push-notification surface that removed the need to poll
+      for status changes. The nearest thing Pearson ever shipped to an event/webhook API.
+
+organizations:
+  - name: PearsonDevelopersNetwork
+    url: https://github.com/PearsonDevelopersNetwork
+    role: first-party API client libraries and samples
+    public_repos: 20
+    newest_push: '2016-09-23'
+    status: abandoned
+  - name: Pearson-Advance
+    url: https://github.com/Pearson-Advance
+    role: >-
+      Open edX platform forks and React UI components, published to npm under the
+      @pearsonedunext scope and actively maintained (newest release 2026-09-08). A
+      product-engineering org, not an API developer program.
+    status: active
+  - name: PearsonEducation
+    url: https://github.com/PearsonEducation
+    role: empty shell; 0 public repositories
+    status: inactive
+  - name: pearsonvue
+    url: https://github.com/pearsonvue
+    role: 'named "Pearson VUE - OLD"; 0 public repositories'
+    status: inactive

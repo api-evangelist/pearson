@@ -1,0 +1,134 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  Live probe of developer.pearson.com's OpenID Connect discovery document, plus
+  Pearson's own LMS integration page and the 1EdTech certification directory entry for
+  Pearson Education.
+note: >-
+  Pearson's cross-cutting conformance evidence is split between a real, fetchable
+  identity document and prose standards claims. The OIDC/OAuth entries below are
+  asserted from a machine-readable document we fetched. The 1EdTech LTI entry is a
+  vendor claim backed by a third-party certification registry, NOT by a contract Pearson
+  publishes — the evidence class is recorded per entry so the two are never confused.
+
+conformance:
+  - id: oidc
+    name: OpenID Connect 1.0 Discovery
+    conforms: true
+    evidence: https://developer.pearson.com/.well-known/openid-configuration
+    evidence_class: fetched-document
+    detail: >-
+      A conforming OIDC discovery document with issuer, authorization, token, userinfo,
+      revocation, introspection, registration and jwks_uri endpoints. Scoped to the
+      developer-portal login, not to a Pearson API product.
+
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: true
+    evidence: https://developer.pearson.com/.well-known/openid-configuration
+    evidence_class: fetched-document
+    detail: >-
+      grant_types_supported [authorization_code, refresh_token];
+      token_endpoint_auth_methods_supported [client_secret_post, client_secret_basic,
+      private_key_jwt].
+
+  - id: rfc7636-pkce
+    name: PKCE (RFC 7636)
+    conforms: true
+    evidence: https://developer.pearson.com/.well-known/openid-configuration
+    evidence_class: fetched-document
+    detail: code_challenge_methods_supported = [S256].
+
+  - id: rfc9449-dpop
+    name: DPoP (RFC 9449)
+    conforms: true
+    evidence: https://developer.pearson.com/.well-known/openid-configuration
+    evidence_class: fetched-document
+    detail: >-
+      dpop_signing_alg_values_supported advertises RS256/384/512, ES256/384/512 and
+      EdDSA.
+
+  - id: rfc7591-dcr
+    name: OAuth 2.0 Dynamic Client Registration (RFC 7591)
+    conforms: true
+    evidence: https://developer.pearson.com/.well-known/openid-configuration
+    evidence_class: fetched-document
+    detail: registration_endpoint is advertised at /services/oauth2/register.
+
+  - id: rfc9116-security-txt
+    name: security.txt (RFC 9116)
+    conforms: false
+    evidence: https://www.pearson.com/.well-known/security.txt
+    evidence_class: probed-absence
+    detail: >-
+      404 on pearson.com, www.pearson.com, plc.pearson.com, www.pearsonvue.com and
+      home.pearsonvue.com, at both /.well-known/security.txt and /security.txt. This is a
+      self-inflicted gap: Pearson's own Responsible Security Disclosure Policy defines its
+      scope as "Pearson products with a security.txt file in their root directory", so no
+      flagship Pearson domain currently falls inside the policy it publishes.
+
+  - id: rfc8615-api-catalog
+    name: /.well-known/api-catalog (RFC 9727)
+    conforms: false
+    evidence: https://www.pearson.com/.well-known/api-catalog
+    evidence_class: probed-absence
+    detail: 404 or 401 on every Pearson host probed.
+
+  - id: openapi
+    name: OpenAPI
+    conforms: false
+    evidence: https://developer.pearson.com/openapi.json
+    evidence_class: probed-absence
+    detail: >-
+      401 (portal login) on developer.pearson.com; api.pearson.com answers 403 with
+      "service that has been moved". No OpenAPI or Swagger document is reachable
+      anonymously on any Pearson host.
+
+domain_standards:
+  - id: lti-1.3
+    name: 1EdTech Learning Tools Interoperability (LTI) 1.3 / LTI Advantage
+    conforms: true
+    evidence: >-
+      https://www.pearson.com/en-us/higher-education/educators/digital-learning-platforms/lms-integration-services.html
+    evidence_class: vendor-claim-plus-certification-registry
+    secondary_evidence: https://site.imsglobal.org/certifications/pearson-education
+    detail: >-
+      Pearson states on its own LMS integration page that it "meets industry standards
+      and is recognized by IMS Global as LTI Certified", and publishes LTI 1.3 / LTI
+      Advantage setup resources alongside legacy LTI 1.1 guidance for Canvas,
+      Brightspace, Sakai, Blackboard Learn, Moodle and Schoology. Pearson Education is
+      listed in the 1EdTech certification directory as a contributing member since 2004.
+      NOTE ON EVIDENCE CLASS: this is a certification and a prose claim, not a contract.
+      Pearson publishes no LTI tool configuration JSON, no OpenAPI, and no
+      machine-readable deployment descriptor at a public URL, so the standard cannot be
+      verified from the contract itself.
+    market: education technology / learning platform interoperability
+
+  - id: oneroster
+    name: 1EdTech OneRoster
+    conforms: unknown
+    evidence: https://site.imsglobal.org/certifications/pearson-education
+    evidence_class: not-established
+    detail: >-
+      The 1EdTech certification directory renders its active-certification list
+      client-side, so the served HTML carries no product rows. No OneRoster claim was
+      found on any Pearson-published page. Recorded as unknown rather than false.
+
+  - id: qti
+    name: 1EdTech Question and Test Interoperability (QTI)
+    conforms: unknown
+    evidence: https://site.imsglobal.org/certifications/pearson-education
+    evidence_class: not-established
+    detail: >-
+      No QTI claim found on a Pearson-published page despite Pearson operating large
+      assessment businesses (Pearson VUE, Clinical Assessments, School Assessments).
+      Recorded as unknown.
+
+  - id: caliper
+    name: 1EdTech Caliper Analytics
+    conforms: unknown
+    evidence: https://site.imsglobal.org/certifications/pearson-education
+    evidence_class: not-established
+    detail: >-
+      Pearson's GitHub org holds an xAPI-LMS-Integration sample (last pushed 2015)
+      showing xAPI rather than Caliper, but nothing current or first-party-documented.

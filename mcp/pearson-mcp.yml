@@ -1,0 +1,25 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  Web search for a Pearson-operated MCP server, plus /.well-known/ai-plugin.json and
+  agent-card probes across every Pearson host.
+note: >-
+  No Pearson MCP server exists — hosted or local. No npm/PyPI package, no documented
+  endpoint, no mention in Pearson's own material. No candidate tool list was derived
+  either, because Pearson publishes no OpenAPI to derive one from: the only
+  machine-readable contracts it still publishes are three retired SOAP WSDLs (see
+  wsdl/). NO `MCPServer` POINTER IS WIRED in apis.yml — this file records a verified
+  absence, not a surface.
+status: none
+tools: []
+deployment:
+  mode: none
+  auth: unknown
+  verified: searched
+evidence:
+  - url: https://www.pearson.com/.well-known/ai-plugin.json
+    status: 404
+  - url: https://developer.pearson.com/.well-known/ai-plugin.json
+    status: 401
+  - url: https://www.pearsonvue.com/.well-known/ai-plugin.json
+    status: 404
