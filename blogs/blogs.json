@@ -2,6 +2,13 @@
   "repo": "pearson",
   "feeds": [
     {
+      "source": "https://www.pearson.com/en-us/higher-education/insights-and-events/teaching-and-learning-blog.html",
+      "feed_url": "https://www.pearson.com/en-us/higher-education/insights-and-events/teaching-and-learning-blog.html",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
       "source": "https://support.pearson.com/",
       "feed_url": "https://support.pearson.com/",
       "title": "",
@@ -10,5 +17,5 @@
     }
   ],
   "post_count": 0,
-  "fetched": "2026-10-03T12:30:02Z"
+  "fetched": "2026-10-10T13:15:00Z"
 }
